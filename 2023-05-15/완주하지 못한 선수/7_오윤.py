@@ -18,3 +18,19 @@ def solution(participant, completion):
         if part_dict[v] == 1:
             ans = v
     return ans
+
+
+# 해시값을 활용한 다른 사람 풀이 - 해시 충돌이 없다는 전제하에.
+# temp에 해시값을 가감하는 아이디어가 신박함.
+def solution(participant, completion):
+    answer = ''
+    temp = 0
+    dic = {}
+    for part in participant:
+        dic[hash(part)] = part
+        temp += int(hash(part))
+    for com in completion:
+        temp -= hash(com)
+    answer = dic[temp]
+
+    return answer
