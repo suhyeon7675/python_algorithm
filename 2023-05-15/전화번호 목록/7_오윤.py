@@ -7,3 +7,18 @@ def solution(phone_book):
         elif phone_book[i].startswith(phone_book[i-1]): 
             ans = 0
     return bool(ans) #ans를 'true'/'false'로 하면 오답처리됨.
+
+
+# 해시로 푼 다른 사람 코드
+def solution(phone_book): # ["123","456","789"]
+    hash_map = {}
+    for phone_number in phone_book:
+        hash_map[phone_number] = 1
+        
+    for phone_number in phone_book:  # phone_number = '123'
+        temp = ""
+        for number in phone_number:  # '123' 에서 '1'->'2'->'3' 순으로 반복
+            temp += number           # temp = '1'->'12'->'123' 순으로 
+            if temp in hash_map and temp != phone_number:  # hash_map 에 있는지 확인. temp != phone_number로 자기 자신은 제외
+                return False
+    return True
