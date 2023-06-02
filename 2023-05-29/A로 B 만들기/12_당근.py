@@ -8,4 +8,4 @@ def solution(before, after):
     else:
         return 0
     
-    #숫자(int) 정렬과 문자열(str) 정렬은 다르다는 점!
+    #숫자(int) 정렬과 문자열(str) 정렬은 다르다는 점!!
